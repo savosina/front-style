@@ -1,0 +1,19 @@
+{
+  "name": "scss_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "http-server": "^0.10.0",
+    "jquery": "^3.2.1",
+    "normalize": "^0.3.1",
+    "sass": "^1.0.0-beta.2"
+  }
+}
