@@ -1,0 +1,13 @@
+@import "colors";
+
+@mixin padding($width: 30px){
+  padding:$width;
+}
+
+@mixin padding-side($width: 30px) {
+  padding:0 $width;
+}
+
+@mixin border($size:1px, $color:#aaaaaa){
+  border:$size solid $color;
+}

@@ -1,0 +1,75 @@
+@import "colors";
+@import "mixin";
+
+@mixin itemSize{
+  width:800px;
+  height:200px;
+}
+
+.tabs-wrapper{
+  overflow: hidden;
+  @include padding();
+  margin-top: 100px;
+}
+
+.tabs{
+  overflow: hidden;
+
+  &-buttons-wrapper{
+    width:100%;
+    overflow: hidden;
+  }
+  
+  &-btn{
+    @include border(1px, $gold);
+    padding: 10px 20px;
+    margin-right: 5px;
+    font-size: 1em;
+    text-transform: capitalize;
+    display: inline-block;
+    float: left;
+    background: transparent;
+
+    &:hover{
+      cursor: pointer;
+      background:$light;
+    }
+
+    &.active{
+      background:$gold;
+
+      &:hover{
+        cursor: default;
+        background:$gold;
+      }
+    }
+  }
+
+  &-items-wrapper{
+    @include itemSize;
+    @include padding();
+    overflow: hidden;
+    position: relative;
+  }
+
+  &-item{
+    @include itemSize;
+    @include padding();
+    margin: 20px 0;
+    background:$gray-light;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    &__h1{
+      font-size: 1.7em;
+      color:$black;
+      margin-bottom: 20px;
+    }
+
+    &__text{
+      font-size: 1em;
+      line-height: 1.7em;
+    }
+  }
+}

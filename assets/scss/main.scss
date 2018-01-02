@@ -1,3 +1,4 @@
 @import "colors";
-
-body{background:$light;color:$black}
+@import "mixin";
+@import "index";
+@import "tabs";
