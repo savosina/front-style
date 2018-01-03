@@ -11,13 +11,11 @@
 
         function setDataAttr(elem, dataType){
             var item = self.find('.'+elem),
-                itemLen = item.length,
-                j=1;
+                itemLen = item.length;
 
             for(var i =0;i<item.length;i++) {
-                $(item[i]).attr(elem == 'jsTabItem' ? 'id':'data-type', dataType + '-' +j);
+                $(item[i]).attr(elem == 'jsTabItem' ? 'id':'data-type', dataType + '-' +itemLen);
                 $(item[i]).css('z-index',itemLen);
-                j++;
                 itemLen--;
             }
         }
