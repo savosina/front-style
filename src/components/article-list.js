@@ -8,6 +8,7 @@ import accordion from '../decorators/accordion'
 class ArticleList extends Component {
 
     render(){
+        console.log('this.props-al', this.props);
         return (
             <ul>
                 {this.body}
