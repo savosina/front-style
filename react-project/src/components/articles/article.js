@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import CommentList from './comment-list'
+//import CommentList from './comment-list'
 
 // Компонент статьи state
 class Article extends PureComponent {
@@ -21,9 +21,9 @@ class Article extends PureComponent {
         const { article, isOpen } = this.props
         return (
             <div>
-                <div>
-                    <h3>{article.title}</h3>
-                    <button onClick = {this.handleBtnClick}>
+                <div className="article-list-head">
+                    <h3 className="content__h3">{article.title}</h3>
+                    <button className={isOpen ? 'button button_grey' : 'button button_green'} onClick = {this.handleBtnClick}>
                         {isOpen ? 'close' : 'open'}
                     </button>
                 </div>
@@ -37,12 +37,11 @@ class Article extends PureComponent {
     get body(){
         const { isOpen, article } = this.props
         if (!isOpen) return null
-            if(this.state.hasError) return <div>Error</div>
+        if(this.state.hasError) return <div>Error</div>
 
         return (
-            <section>
+            <section className="article-list-body">
                 {article.text}
-                <CommentList comments={article.comments} />
             </section>
         )
     }
