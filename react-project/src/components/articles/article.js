@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import { deleteArticle } from '../../ac'
+import { connect } from 'react-redux'
 //import CommentList from './comment-list'
 
 // Компонент статьи state
@@ -26,13 +28,22 @@ class Article extends PureComponent {
                     <button className={isOpen ? 'button button_grey' : 'button button_green'} onClick = {this.handleBtnClick}>
                         {isOpen ? 'close' : 'open'}
                     </button>
+                    <button className='button button_green' onClick={this.handleDelete}>delete article</button>
                 </div>
                 {this.body}
             </div>
         )
     }
 
-    handleBtnClick = () => this.props.toggleOpen(this.props.article.id)
+    handleBtnClick = () => {
+        const { toggleOpen,  article} = this.props
+        toggleOpen(article.id)
+    }
+
+    handleDelete = () => {
+        const { deleteArticle, article } = this.props
+        deleteArticle(article.id)
+    }
 
     get body(){
         const { isOpen, article } = this.props
@@ -47,4 +58,4 @@ class Article extends PureComponent {
     }
 }
 
-export default Article
+export default connect(null, { deleteArticle })(Article)

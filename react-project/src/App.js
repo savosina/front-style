@@ -18,7 +18,7 @@ class App extends Component {
             </header>
             <section className="content">
                 <Counter />
-                <ArticleList articles = {articles}/>
+                <ArticleList />
             </section>
           </div>
           <footer className="footer"></footer>
