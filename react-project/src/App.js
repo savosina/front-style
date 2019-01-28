@@ -6,7 +6,7 @@ import Counter from './components/counter.js'
 //import About from './about.js'
 //import Blog from './blog.js'
 import './App.css';
-import articles from './fixtures'
+//import articles from './fixtures'
 
 
 class App extends Component {

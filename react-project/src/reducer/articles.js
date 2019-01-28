@@ -1,13 +1,33 @@
-import { DELETE_ARTICLE } from '../constants'
-import defaultArticles from '../fixtures'
+import { DELETE_ARTICLE, LOAD_ALL_ARTICLES } from '../constants'
+import { arrToMap } from './utils'
+//import defaultArticles from '../fixtures'
+import { Record } from 'immutable'
 
-export default (articleState = defaultArticles, action) => {
-    const { type, payload } = action
+const ArticleRecord = Record({
+    title:null,
+    id: null,
+    text:null,
+    comments:[]
+})
+
+//const ReduserRecord = Record({
+//    entities: arrToMap([], ArticleRecord),
+//    loading: false,
+//    loaded: false,
+//    error: null
+//})
+
+export default (articles = arrToMap([], ArticleRecord), action) => {
+    const { type, payload, response } = action
 
     switch (type){
         case DELETE_ARTICLE:
-            return articleState.filter(article => article.id !== payload.id)
+            return articles.filter(article => article.id !== payload.id)
 
+        case LOAD_ALL_ARTICLES:
+            return articles(response, ArticleRecord)
+
+        default:
+            return articles
     }
-    return articleState
 }
